@@ -31,6 +31,12 @@ body,
 .canvas {
   position: absolute !important;
   inset: 0;
+  cursor: grab;
+  touch-action: none;
+}
+
+.canvas:active {
+  cursor: grabbing;
 }
 
 .hud {
@@ -55,6 +61,16 @@ body,
   margin: 4px 0 0;
   font-size: 0.875rem;
   color: var(--muted);
+}
+
+.hint {
+  position: absolute;
+  left: 24px;
+  bottom: 12px;
+  margin: 0;
+  font-size: 0.75rem;
+  color: var(--muted);
+  pointer-events: none;
 }
 
 .credit {

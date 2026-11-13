@@ -20,6 +20,8 @@ export default function App() {
         <p>Real-time earthquakes on a 3D Earth</p>
       </header>
 
+      <p className="hint">Drag to rotate · Scroll to zoom</p>
+
       <footer className="credit">
         Data: <a href="https://earthquake.usgs.gov/earthquakes/feed/" target="_blank" rel="noreferrer">USGS</a>
       </footer>
