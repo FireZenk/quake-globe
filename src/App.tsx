@@ -1,7 +1,11 @@
 import { Canvas } from '@react-three/fiber'
+import { FeedStatus } from './components/FeedStatus'
 import { Scene } from './components/Scene'
+import { useQuakes } from './hooks/useQuakes'
 
 export default function App() {
+  const quakes = useQuakes('day')
+
   return (
     <main className="app">
       <Canvas
@@ -18,6 +22,7 @@ export default function App() {
           quake<span>·</span>globe
         </h1>
         <p>Real-time earthquakes on a 3D Earth</p>
+        <FeedStatus {...quakes} />
       </header>
 
       <p className="hint">Drag to rotate · Scroll to zoom</p>

@@ -84,3 +84,89 @@ body,
 .credit a {
   color: inherit;
 }
+
+.feed-status {
+  margin-top: 16px;
+  padding: 10px 14px;
+  max-width: 300px;
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  color: var(--muted);
+  background: rgba(12, 15, 24, 0.62);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  backdrop-filter: blur(8px);
+  pointer-events: auto;
+}
+
+.feed-status p {
+  margin: 0;
+}
+
+.feed-status .count {
+  color: var(--fg);
+  font-size: 0.9375rem;
+}
+
+.feed-status .count strong {
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+
+.feed-status .strongest {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.feed-status .strongest b {
+  color: var(--fg);
+}
+
+.feed-status .updated {
+  margin-top: 6px;
+  font-size: 0.75rem;
+}
+
+.feed-status .dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  margin-right: 6px;
+  border-radius: 50%;
+  vertical-align: 1px;
+  background: #3ddc84;
+  box-shadow: 0 0 6px #3ddc84;
+}
+
+.feed-status.loading .dot {
+  background: var(--muted);
+  box-shadow: none;
+  animation: blink 1s ease-in-out infinite;
+}
+
+.feed-status.error .dot {
+  background: #ff4d4d;
+  box-shadow: 0 0 6px #ff4d4d;
+}
+
+.feed-status button {
+  margin-left: 8px;
+  padding: 2px 10px;
+  font: inherit;
+  color: var(--fg);
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.feed-status button:hover {
+  border-color: var(--accent);
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0.3;
+  }
+}

@@ -9,7 +9,7 @@ and plots each quake by location, depth and magnitude — with a timeline to rep
 
 - [x] Vite + React + TypeScript + React Three Fiber scaffold
 - [x] Textured 3D Earth with orbit controls — day map, relief, ocean glint, night-side city lights, clouds and atmosphere glow
-- [ ] Fetch and parse the USGS GeoJSON feed
+- [x] Fetch and parse the USGS GeoJSON feed — typed `Quake` model, validation, 5-min background refresh, live summary in the HUD
 - [ ] Quakes plotted on the globe, sized and colored by magnitude
 - [ ] Pulse animation and hover tooltip
 - [ ] 24h timeline scrubber with playback
