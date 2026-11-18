@@ -1,7 +1,9 @@
 import { OrbitControls, Stars } from '@react-three/drei'
 import { Suspense } from 'react'
 import { SUN_DIRECTION } from '../lib/sun'
+import type { Quake } from '../lib/usgs'
 import { Earth } from './Earth'
+import { Quakes } from './Quakes'
 
 /** Wireframe stand-in shown while the Earth textures are loading. */
 function GlobeFallback() {
@@ -13,8 +15,8 @@ function GlobeFallback() {
   )
 }
 
-/** Earth lit by a fixed sun over a starfield; the camera orbits around it. */
-export function Scene() {
+/** Earth lit by a fixed sun over a starfield, with live quakes; the camera orbits around it. */
+export function Scene({ quakes }: { quakes: Quake[] }) {
   return (
     <>
       <color attach="background" args={['#05060a']} />
@@ -24,6 +26,7 @@ export function Scene() {
 
       <Suspense fallback={<GlobeFallback />}>
         <Earth />
+        <Quakes quakes={quakes} />
       </Suspense>
 
       <OrbitControls

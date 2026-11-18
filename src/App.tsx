@@ -1,5 +1,6 @@
 import { Canvas } from '@react-three/fiber'
 import { FeedStatus } from './components/FeedStatus'
+import { MagnitudeLegend } from './components/MagnitudeLegend'
 import { Scene } from './components/Scene'
 import { useQuakes } from './hooks/useQuakes'
 
@@ -14,7 +15,7 @@ export default function App() {
         dpr={[1, 2]}
         gl={{ antialias: true }}
       >
-        <Scene />
+        <Scene quakes={quakes.feed?.quakes ?? []} />
       </Canvas>
 
       <header className="hud">
@@ -23,6 +24,7 @@ export default function App() {
         </h1>
         <p>Real-time earthquakes on a 3D Earth</p>
         <FeedStatus {...quakes} />
+        {quakes.feed && <MagnitudeLegend />}
       </header>
 
       <p className="hint">Drag to rotate · Scroll to zoom</p>

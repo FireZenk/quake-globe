@@ -170,3 +170,46 @@ body,
     opacity: 0.3;
   }
 }
+
+.legend {
+  margin-top: 10px;
+  padding: 10px 14px 22px;
+  max-width: 300px;
+  font-size: 0.75rem;
+  color: var(--muted);
+  background: rgba(12, 15, 24, 0.62);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  backdrop-filter: blur(8px);
+}
+
+.hud .legend-title {
+  margin: 0 0 6px;
+  font-size: 0.75rem;
+  color: var(--fg);
+}
+
+.legend-bar {
+  height: 6px;
+  border-radius: 3px;
+  box-shadow: 0 0 10px rgba(255, 107, 61, 0.25);
+}
+
+.legend-ticks {
+  position: relative;
+  margin-top: 4px;
+  font-variant-numeric: tabular-nums;
+}
+
+.legend-ticks span {
+  position: absolute;
+  transform: translateX(-50%);
+}
+
+.legend-ticks span:first-child {
+  transform: none;
+}
+
+.legend-ticks span:last-child {
+  transform: translateX(-100%);
+}
