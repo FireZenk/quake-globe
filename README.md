@@ -11,7 +11,7 @@ and plots each quake by location, depth and magnitude — with a timeline to rep
 - [x] Textured 3D Earth with orbit controls — day map, relief, ocean glint, night-side city lights, clouds and atmosphere glow
 - [x] Fetch and parse the USGS GeoJSON feed — typed `Quake` model, validation, 5-min background refresh, live summary in the HUD
 - [x] Quakes plotted on the globe, sized and colored by magnitude — one instanced mesh for the whole feed, plus a color-scale legend
-- [ ] Pulse animation and hover tooltip
+- [x] Pulse animation and hover tooltip — ripple rings on recent and M4.5+ quakes; hover any marker for magnitude, place, time and depth
 - [ ] 24h timeline scrubber with playback
 - [ ] Magnitude / period filters and side list
 - [ ] Live demo on GitHub Pages

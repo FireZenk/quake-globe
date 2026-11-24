@@ -213,3 +213,94 @@ body,
 .legend-ticks span:last-child {
   transform: translateX(-100%);
 }
+
+.app.hovering .canvas {
+  cursor: pointer;
+}
+
+.tooltip {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: max-content;
+  max-width: 280px;
+  padding: 10px 12px;
+  font-size: 0.8125rem;
+  line-height: 1.4;
+  color: var(--muted);
+  background: rgba(12, 15, 24, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(8px);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 120ms ease;
+}
+
+.tooltip.visible {
+  opacity: 1;
+}
+
+.tooltip p {
+  margin: 0;
+}
+
+.tooltip-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.tooltip-mag {
+  flex: none;
+  padding: 1px 6px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  border: 1px solid;
+  border-radius: 6px;
+}
+
+.tooltip-place {
+  color: var(--fg);
+  font-weight: 500;
+}
+
+.tooltip-meta {
+  margin-top: 6px !important;
+  font-size: 0.75rem;
+}
+
+.tooltip-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 6px !important;
+}
+
+.tag {
+  padding: 1px 6px;
+  font-size: 0.6875rem;
+  text-transform: capitalize;
+  color: var(--fg);
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+}
+
+.tag.alert-green {
+  background: rgba(61, 220, 132, 0.2);
+}
+
+.tag.alert-yellow {
+  background: rgba(255, 214, 10, 0.22);
+}
+
+.tag.alert-orange {
+  background: rgba(255, 140, 0, 0.25);
+}
+
+.tag.alert-red,
+.tag.tsunami {
+  background: rgba(255, 77, 77, 0.28);
+}
