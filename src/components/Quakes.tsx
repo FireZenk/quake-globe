@@ -128,12 +128,13 @@ function Pulses({ quakes }: { quakes: Quake[] }) {
     return quakes
       .filter((q) => q.time >= since || q.mag >= PULSE_MIN_MAG)
       .slice(-PULSE_MAX) // sorted by magnitude, so the cap drops the weakest
-      .map((q, i) => ({
+      .map((q) => ({
         position: latLonToVector3(q.lat, q.lon, SURFACE),
         radius: magnitudeRadius(q.mag),
         color: magnitudeColor(q.mag),
-        // Golden-ratio offsets keep neighbouring rings out of step.
-        phase: (i * 0.618034) % 1,
+        // Golden-ratio offsets keep neighbouring rings out of step; keyed on the
+        // quake itself so rings don't jump when timeline playback adds markers.
+        phase: ((q.time / 1000) * 0.618034) % 1,
         // Stronger quakes ripple a little slower and wider.
         speed: 1 / (PULSE_PERIOD + Math.max(q.mag, 0) * 0.12),
       }))

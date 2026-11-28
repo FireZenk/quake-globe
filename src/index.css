@@ -304,3 +304,234 @@ body,
 .tag.tsunami {
   background: rgba(255, 77, 77, 0.28);
 }
+
+.timeline {
+  position: absolute;
+  left: 50%;
+  bottom: 36px;
+  width: min(720px, calc(100% - 32px));
+  padding: 10px 14px 24px;
+  transform: translateX(-50%);
+  font-size: 0.8125rem;
+  color: var(--muted);
+  background: rgba(12, 15, 24, 0.62);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  backdrop-filter: blur(8px);
+}
+
+.timeline button {
+  font: inherit;
+  color: var(--fg);
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 8px;
+  cursor: pointer;
+  transition:
+    border-color 120ms ease,
+    background 120ms ease;
+}
+
+.timeline button:hover:not(:disabled) {
+  border-color: var(--accent);
+}
+
+.timeline button:focus-visible,
+.tl-range:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.timeline-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.tl-play {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  background: var(--accent) !important;
+  border-color: var(--accent) !important;
+  border-radius: 50% !important;
+  box-shadow: 0 0 12px rgba(255, 107, 61, 0.35);
+}
+
+.tl-play svg {
+  width: 14px;
+  height: 14px;
+  fill: #10131c;
+}
+
+.tl-speed {
+  min-width: 38px;
+  height: 26px;
+  padding: 0 8px;
+  font-size: 0.75rem !important;
+  font-variant-numeric: tabular-nums;
+}
+
+.tl-readout {
+  display: flex;
+  flex: 1;
+  align-items: baseline;
+  gap: 10px;
+  min-width: 0;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.tl-time {
+  color: var(--fg);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.tl-count {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-variant-numeric: tabular-nums;
+}
+
+.tl-count b {
+  color: var(--accent);
+}
+
+.tl-live {
+  display: inline-flex;
+  align-items: center;
+  height: 26px;
+  padding: 0 10px;
+  font-size: 0.75rem !important;
+}
+
+.tl-live .dot {
+  width: 7px;
+  height: 7px;
+  margin-right: 6px;
+  border-radius: 50%;
+  background: var(--muted);
+}
+
+.tl-live.on {
+  cursor: default !important;
+  border-color: rgba(61, 220, 132, 0.4);
+}
+
+.tl-live.on .dot {
+  background: #3ddc84;
+  box-shadow: 0 0 6px #3ddc84;
+}
+
+.timeline-track {
+  position: relative;
+  height: 40px;
+}
+
+.tl-bars {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.tl-bars span {
+  flex: 1;
+  min-height: 0;
+  border-radius: 2px 2px 0 0;
+  opacity: 0.9;
+  transition: opacity 160ms ease;
+}
+
+.tl-bars span.future {
+  opacity: 0.18;
+}
+
+/* Glowing playhead line; position comes from --progress (0..1). */
+.tl-head {
+  position: absolute;
+  top: -4px;
+  bottom: -4px;
+  left: calc(var(--progress) * 100%);
+  width: 2px;
+  margin-left: -1px;
+  background: var(--fg);
+  border-radius: 1px;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+  pointer-events: none;
+}
+
+.tl-range {
+  position: absolute;
+  inset: -6px 0;
+  width: 100%;
+  height: calc(100% + 12px);
+  margin: 0;
+  background: transparent;
+  cursor: ew-resize;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.tl-range::-webkit-slider-runnable-track {
+  height: 100%;
+  background: transparent;
+}
+
+.tl-range::-moz-range-track {
+  height: 100%;
+  background: transparent;
+}
+
+.tl-range::-webkit-slider-thumb {
+  width: 14px;
+  height: 100%;
+  background: transparent;
+  border: 0;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.tl-range::-moz-range-thumb {
+  width: 14px;
+  height: 100%;
+  background: transparent;
+  border: 0;
+}
+
+.tl-ticks {
+  position: relative;
+  margin-top: 4px;
+  font-size: 0.6875rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.tl-ticks span {
+  position: absolute;
+  transform: translateX(-50%);
+}
+
+.tl-ticks .now {
+  transform: translateX(-100%);
+  color: var(--fg);
+}
+
+@media (max-width: 640px) {
+  .timeline {
+    bottom: 32px;
+  }
+
+  .tl-count {
+    display: none;
+  }
+
+  .hint {
+    display: none;
+  }
+}
